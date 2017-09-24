@@ -2,11 +2,16 @@ import csv
 import numpy as np
 import serial
 
-ser = serial.Serial("COM7", 9600, timeout=None)
-ser.timeout = None
+ser = serial.Serial("COM8", 9600, timeout=None)
 
-line = ""
-f = file("data2.csv", "a+")
+mode = ""
+while True:
+    mode = input("mode(Up, Down, Right, Left):")
+    if mode == "Up" or mode == "Down" or mode == "Right" or mode == "Left":
+        break
+line = mode + ","
+f = open("data.csv", "a+")
+
 
 while (True):
     c = ser.read()
@@ -14,4 +19,5 @@ while (True):
     if c == b'\n':
         print(line)
         f.write(line)
-        line = ""
+        line = mode + ","
+f.close()
