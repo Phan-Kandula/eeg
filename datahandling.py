@@ -12,7 +12,6 @@ while True:
 line = mode + ","
 f = open("data.csv", "a+")
 
-
 while (True):
     c = ser.read()
     line = line + c.decode("utf-8")
