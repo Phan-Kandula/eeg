@@ -12,3 +12,4 @@ inputY = LabelEncoderY.fit_transform(inputY)
 inputY = np.reshape(inputY, (inputY.size, 1))
 ohenc = OneHotEncoder(categorical_features="all")
 inputY = ohenc.fit_transform(inputY).toarray()
+
