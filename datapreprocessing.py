@@ -77,5 +77,5 @@ def train_set(x)
 
 		print('Accuracy:',accuracy.eval({x:test_x, y:test_y}))
 
-	    
+#memes
 train_neural_network(x)
