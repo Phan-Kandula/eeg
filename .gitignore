@@ -103,3 +103,5 @@ ENV/
 data.csv
 .gitignore
 script.py
+.idea
+tensorflowproj.sublime-project
