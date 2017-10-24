@@ -6,8 +6,10 @@ from sklearn.model_selection import train_test_split
 import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Dense
-from sklearn.metrics import confusion_matrix
-
+# from sklearn.metrics import confusion_matrix
+from mover import Mover
+import serial
+import numpy as np
 # data processing
 data = pd.read_csv("data1.csv")
 inputX = data.iloc[:, 1:].values
@@ -21,9 +23,6 @@ inputY = ohenc.fit_transform(inputY).toarray()
 x_train, x_test, y_train, y_test = train_test_split(
     inputX, inputY, test_size=0.33, random_state=81)
 
-ss = StandardScaler()
-x_train = ss.fit_transform(x_train)
-x_test = ss.transform(x_test)
 
 
 def neural_model(x):
@@ -57,9 +56,50 @@ ann = neural_model(x_train)
 ann.compile(optimizer='adam', loss='categorical_crossentropy',
             metrics=['accuracy'])
 ann.fit(x_train, y_train, batch_size=10, epochs=10)
+
 def prediction(x):
     pred = ann.predict(x)
-    arr = np.zeros(4)
-    arr[np.argmax(pred)] = 1
-    return arr
+    direction = {0 : "down", 1 : "left", 2 : "right", 3 : "up"}
+    return direction[np.argmax(pred)]
+
+mover = Mover()
+ser = serial.Serial("COM8", 9600, timeout=None)
+
+
+def line_to_nparray(line):
+    arr = line.split(',')
+    arr = list(map(int, arr))
+    return np.array(arr, dtype=np.int64, ndmin=2)
+
+
+def move_mouse(line):
+    side = prediction(line)
+    if side == 'down':
+        mover.move_down()
+    elif side == 'left':
+        mover.move_left()
+    elif side == 'right':
+        mover.move_right()
+    elif side == 'up':
+        mover.move_up
+
+line = ''
+while (True):
+    c = ser.read()
+    if c == b'\t':
+        while(True):
+            c = ser.read()
+            if (c != b'\n' and c != b'\r'):
+                line = line + c.decode("utf-8")
+            elif(c == b'\r'):
+                line = line_to_nparray(line)
+                move_mouse(line)
+                line = ''
+                break
+            else:
+                line = line_to_nparray(line)
+                move_mouse(line)
+                line = ''
+                break
+
 

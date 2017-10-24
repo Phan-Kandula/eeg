@@ -13,12 +13,16 @@ while True:
 
 line = mode + ","
 f = open("data1.csv", "a+")
-f.write("###\n")
+#f.write("###\n")
 while (True):
     c = ser.read()
-    line = line + c.decode("utf-8")
-    if c == b'\n':
-        print(line)
-        f.write(line)
-        line = mode + ","
+    if c == b'\t':
+        while(True):
+            c = ser.read()
+            line = line + c.decode("utf-8")
+            if c == b'\n':
+                print(line)
+                f.write(line)
+                line = mode + ","
+                break
 f.close()
