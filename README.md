@@ -8,8 +8,7 @@ Down = Imagine navigating through your house.
 
  Note: You may use another setup and the neural network can identify your arrangement if you the setup remains consistent. The setup above is just an example or a starting point.
 
-This software uses a neural networks and other machine learning algorithms that require training.
-
+This software uses a neural networks and other machine learning algorithms that require training. Therefore it is also advised to have someone help you in the process.
 Requirements:
 Python 3.5
 Arduino
@@ -32,7 +31,11 @@ Installation guide:
 4. Install the Arduino Ide from https://www.arduino.cc/en/Main/Software
 
 Training
-1. Setup the Arduino by connecting it to your computer and attaching electrodes to the analog ports. It is advised to use different colored electrodes for differentiation.
+1. Setup the Arduino by connecting it to your computer and attaching electrodes to the analog ports(shown in the figure below). It is advised to use different colored electrodes for differentiation.
+
+Arduino yun: 
+![alt text](https://i1.wp.com/techienoise.com/wp-content/uploads/2015/12/21.jpg?resize=861%2C578)
+
 2. Upload the Arduino code into your Arduino through the Arduino IDE. Note the port in which your Arduino is connected to your laptop.
 3. Run the datahandling.py script and input the port when asked.
 4. Input the direction you want to train the neural network.
@@ -45,3 +48,6 @@ Training
 6. You can also perform the thinking process throughout the entire time instead of waiting till the light appears. The arduino only monitors after the light appears.
 7.It is advised to spend as much time as possible training for each direction. There will be an improved performance through more training. It is suggested to spend around 15 minutes for each direction.
 8. Training is required only once per user or when performance is not to satisfaction.
+
+Usage:
+
