@@ -46,7 +46,7 @@ Arduino yun:
 	Down = Imagine navigating through your house.
 	
 6. You can also perform the thinking process throughout the entire time instead of waiting till the light appears. The arduino only monitors after the light appears.
-7.It is advised to spend as much time as possible training for each direction. There will be an improved performance through more training. It is suggested to spend around 15 minutes for each direction.
+7. It is advised to spend as much time as possible training for each direction. There will be an improved performance through more training. It is suggested to spend around 15 minutes for each direction.
 8. Training is required only once per user or when performance is not to satisfaction.
 
 Usage:
