@@ -1,10 +1,10 @@
 # Mouse for paralyzed patients
 These scripts can allow one to move the mouse of your computer through your brain activity. The Arduino monitors the active part of your brain at an interval and the user is required to think of one of the following depending on the direction the mouse is needed to move.
 
-Right = Imagine moving your right arm and leg
-Left = Imagine moving your left arm and leg
-Up = Try solving a hard math problem or anything that intellectually challenges you to stimulate your frontal lobe. Requires concentration.
-Down = Imagine navigating through your house.
+	Right = Imagine moving your right arm and leg
+	Left = Imagine moving your left arm and leg
+	Up = Try solving a hard math problem or anything that intellectually challenges you to stimulate your frontal lobe. Requires concentration.
+	Down = Imagine navigating through your house.
 
  Note: You may use another setup and the neural network can identify your arrangement if you the setup remains consistent. The setup above is just an example or a starting point.
 
@@ -37,7 +37,7 @@ Arduino yun:
 ![alt text](https://i1.wp.com/techienoise.com/wp-content/uploads/2015/12/21.jpg?resize=861%2C578)
 
 2. Upload the Arduino code into your Arduino through the Arduino IDE. Note the port in which your Arduino is connected to your laptop.
-3. Run the datahandling.py script and input the port when asked.
+3. Run the datahandling.py script and input the port when asked. To run the script, go to the directory in which you store these files and type "python datahandling.py". 
 4. Input the direction you want to train the neural network.
 5. Think of one of the following(The direction you want to train your network) when a red light appears on your Arduino.
 	Right = Imagine moving your right arm and leg
@@ -50,4 +50,5 @@ Arduino yun:
 8. Training is required only once per user or when performance is not to satisfaction.
 
 Usage:
+Run ann.py by typing "python ann.py" in your shell after going to the directory in which you store these files. Think of the action you assigned whenever you see the light appear. The mouse will move accordingly.
 
